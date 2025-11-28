@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: dexlite-api
+    tty: true
+    build: .
+    ports:
+      - 8080:8080
+    restart: on-failure
+    volumes:
+      - .:/app
+    networks:
+      - dexlite_network
+networks:
+  dexlite_network:
+    driver: bridge
